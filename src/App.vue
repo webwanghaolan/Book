@@ -1,31 +1,43 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <van-tabbar route v-show='this.$route.path=="/detail" ? false : true'>
+      <van-tabbar-item replace to="/" icon="home-o">
+        精选
+      </van-tabbar-item>
+      <van-tabbar-item replace to="/list" icon="bar-chart-o">
+        榜单
+      </van-tabbar-item>
+      <van-tabbar-item replace to="/cart" icon="shop-o">
+        书阁
+      </van-tabbar-item>
+      <van-tabbar-item replace to="/user" icon="user-o">
+        我的
+      </van-tabbar-item>
+    </van-tabbar>
     <router-view/>
   </div>
 </template>
 
-<style>
+<script>
+export default {
+  data(){
+    return {
+      isShow:true
+    }
+  }  
+} 
+</script>
+
+<style scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
 
-#nav a {
-  font-weight: bold;
   color: #2c3e50;
+  margin-bottom: 50px;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.van-tabbar-item--active{
+  color:green !important;
 }
 </style>

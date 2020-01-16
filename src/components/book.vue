@@ -40,7 +40,6 @@ export default {
   },
   methods:{
     goto(e){
-      // console.log(e)
       this.$router.push({name:'detail',params:{cid:e+21}})  //跳转到对应详情页
     },
     onSearch(){
